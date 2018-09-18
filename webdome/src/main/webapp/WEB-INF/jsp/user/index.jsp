@@ -28,6 +28,7 @@
         <button class="btn" data-toggle="modal">启用</button></td>
   </tr>
 </table>
+</div>
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -37,11 +38,11 @@
 					&times;
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					模态框（Modal）标题
+					添加用户
 				</h4>
 			</div>
 			<div class="modal-body">
-				在这里添加一些文本
+				<span>用户姓名：</span>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭

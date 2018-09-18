@@ -3,12 +3,9 @@ package com.domepack.webb.service.impl;
 import java.util.Date;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.domepack.webb.controller.UserController;
 import com.domepack.webb.dao.UserAdminMapper;
 import com.domepack.webb.entity.UserAdmin;
 import com.domepack.webb.entity.enums.UserAdminEnum.UserFlag;
@@ -24,7 +21,7 @@ public class UserAdminServiceImpl implements UserAdminService {
 	
 	final String DEFAULTPWD="000000";
 	
-	private static Logger log=LoggerFactory.getLogger(UserAdminServiceImpl.class);
+	//private static Logger log=LoggerFactory.getLogger(UserAdminServiceImpl.class);
 	
 
 	 
@@ -39,10 +36,10 @@ public class UserAdminServiceImpl implements UserAdminService {
 		user.setCteadTime(new Date());
 		user.setUseFlag(UserFlag.USING.getValue());
 		
-	    Long returnid = userAdminMapper.insert(user);
+	    long returnid =  userAdminMapper.insert(user);
 	    
-	    if (returnid!=null) {
-	    	log.info("ÐÂÔöADMINÓÃ»§id:",returnid);
+	    if (returnid!=0) {
+	    	//log.info("ï¿½ï¿½ï¿½ï¿½ADMINï¿½Ã»ï¿½id:",returnid);
 			return FinalValues.SUSSCE;
 		}
 		return FinalValues.FAIL;

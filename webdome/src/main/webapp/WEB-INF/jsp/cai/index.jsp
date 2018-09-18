@@ -110,9 +110,9 @@
 			</div>
 			<div class="modal-body">
 				<span>开奖期号：</span><input type="text" disabled="disabled" value="20180906001"/><br/>
-				<span>开奖号码：</span><input type="text" style="width:50px;height:50px;font-size: 18px; font-weight: bold;"/> 
-				                     <input type="text" style="width:50px;height:50px;font-size: 18px; font-weight: bold;" /> 
-				                     <input type="text" style="width:50px;height:50px;font-size: 18px; font-weight: bold;"/>
+				<span>开奖号码：</span><input type="text" name="numOne" style="width:50px;height:50px;font-size: 18px; font-weight: bold;"/> 
+				                     <input type="text" name="numTwo" style="width:50px;height:50px;font-size: 18px; font-weight: bold;" /> 
+				                     <input type="text" name="numThree" style="width:50px;height:50px;font-size: 18px; font-weight: bold;"/>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭

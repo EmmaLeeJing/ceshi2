@@ -2,8 +2,6 @@ package com.domepack.webb.entity;
 
 import java.util.Date;
 
-import com.domepack.webb.entity.enums.UserAdminEnum.UserFlag;
-
 public class UserAdmin {
     private Long id;
 
@@ -19,7 +17,11 @@ public class UserAdmin {
 
     private String rank;
 
-    private Integer useFlag = UserFlag.USING.getValue();
+    private Integer useFlag;
+
+    private Integer pwdLockCount;
+
+    private String userArea;
 
     public Long getId() {
         return id;
@@ -83,5 +85,21 @@ public class UserAdmin {
 
     public void setUseFlag(Integer useFlag) {
         this.useFlag = useFlag;
+    }
+
+    public Integer getPwdLockCount() {
+        return pwdLockCount;
+    }
+
+    public void setPwdLockCount(Integer pwdLockCount) {
+        this.pwdLockCount = pwdLockCount;
+    }
+
+    public String getUserArea() {
+        return userArea;
+    }
+
+    public void setUserArea(String userArea) {
+        this.userArea = userArea == null ? null : userArea.trim();
     }
 }

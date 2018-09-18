@@ -10,9 +10,12 @@
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="rank" property="rank" jdbcType="VARCHAR" />
     <result column="use_flag" property="useFlag" jdbcType="INTEGER" />
+    <result column="pwd_lock_count" property="pwdLockCount" jdbcType="INTEGER" />
+    <result column="user_area" property="userArea" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, login_name, password, last_login_date, ctead_time, update_time, rank, use_flag
+    id, login_name, password, last_login_date, ctead_time, update_time, rank, use_flag, 
+    pwd_lock_count, user_area
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -24,13 +27,15 @@
     delete from user_admin
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.domepack.webb.entity.UserAdmin"  useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.domepack.webb.entity.UserAdmin" >
     insert into user_admin (id, login_name, password, 
       last_login_date, ctead_time, update_time, 
-      rank, use_flag)
+      rank, use_flag, pwd_lock_count, 
+      user_area)
     values (#{id,jdbcType=BIGINT}, #{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{lastLoginDate,jdbcType=TIMESTAMP}, #{cteadTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{rank,jdbcType=VARCHAR}, #{useFlag,jdbcType=INTEGER})
+      #{rank,jdbcType=VARCHAR}, #{useFlag,jdbcType=INTEGER}, #{pwdLockCount,jdbcType=INTEGER}, 
+      #{userArea,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.domepack.webb.entity.UserAdmin" >
     insert into user_admin
@@ -59,6 +64,12 @@
       <if test="useFlag != null" >
         use_flag,
       </if>
+      <if test="pwdLockCount != null" >
+        pwd_lock_count,
+      </if>
+      <if test="userArea != null" >
+        user_area,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -84,6 +95,12 @@
       </if>
       <if test="useFlag != null" >
         #{useFlag,jdbcType=INTEGER},
+      </if>
+      <if test="pwdLockCount != null" >
+        #{pwdLockCount,jdbcType=INTEGER},
+      </if>
+      <if test="userArea != null" >
+        #{userArea,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -111,6 +128,12 @@
       <if test="useFlag != null" >
         use_flag = #{useFlag,jdbcType=INTEGER},
       </if>
+      <if test="pwdLockCount != null" >
+        pwd_lock_count = #{pwdLockCount,jdbcType=INTEGER},
+      </if>
+      <if test="userArea != null" >
+        user_area = #{userArea,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -122,12 +145,9 @@
       ctead_time = #{cteadTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       rank = #{rank,jdbcType=VARCHAR},
-      use_flag = #{useFlag,jdbcType=INTEGER}
+      use_flag = #{useFlag,jdbcType=INTEGER},
+      pwd_lock_count = #{pwdLockCount,jdbcType=INTEGER},
+      user_area = #{userArea,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="selectUserAdmins" parameterType="com.domepack.webb.entity.UserAdmin" resultMap="BaseResultMap">
-     select 
-    <include refid="Base_Column_List" />
-    from user_admin where use_flag!=5
-  </select>
 </mapper>

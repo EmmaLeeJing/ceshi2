@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.domepack.webb.entity.CaiPiaoNum;
+
 @Controller  
 @RequestMapping("/caiview")  
 public class CaiPiaoViewController {
@@ -28,6 +30,11 @@ public class CaiPiaoViewController {
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)  
     public String addUsers(HttpServletRequest request,Model model){  
+		return USERADD;
+	}
+	
+	@RequestMapping(value="/saveCai",method=RequestMethod.GET)  
+    public String saveCaiPiao(HttpServletRequest request,CaiPiaoNum caipiao){  
 		return USERADD;
 	}
 }
