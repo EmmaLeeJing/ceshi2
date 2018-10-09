@@ -11,7 +11,7 @@
 		<h2>彩票号展示</h2>
 		<br/>
 		<hr/>
-		<input type="button" value="添加" class="btn"/>
+		<input type="button" value="添加"  class="btn" data-toggle="modal" data-target="#myModal"/>
 		<br/>
 		<table class="table">
 			<tr><th >期号</th><th>奖号1</th><th>奖号2</th><th>奖号3</th><th>和值</th></tr>
@@ -95,6 +95,34 @@
 			<tr><td>20180906078</td><td>2</td><td>3</td><td>6</td><td>10</td></tr>
 		</table>
    </div>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					添加开奖
+				</h4>
+			</div>
+			<div class="modal-body">
+				<span>开奖期号：</span><input type="text" disabled="disabled" value="20180906001"/><br/>
+				<span>开奖号码：</span><input type="text" name="numOne" style="width:50px;height:50px;font-size: 18px; font-weight: bold;"/> 
+				                     <input type="text" name="numTwo" style="width:50px;height:50px;font-size: 18px; font-weight: bold;" /> 
+				                     <input type="text" name="numThree" style="width:50px;height:50px;font-size: 18px; font-weight: bold;"/>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					保存
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
 </div>
 </body>
 </html>

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;  
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.domepack.webb.entity.Result;
@@ -61,7 +62,12 @@ public class UserController extends AbstractController {
         return returnResult.toString();  
     } 
     
-    
+    @RequestMapping(value="/toAddUser",method=RequestMethod.GET)  
+    public ModelAndView  toAddUser(HttpServletRequest request,Model model){  
+    	ModelAndView mav = new ModelAndView();
+    	mav.setViewName("addUser");
+        return mav;  
+    } 
     @RequestMapping(value="/listUser",method=RequestMethod.GET)  
     public @ResponseBody String listUser(HttpServletRequest request,HttpServletResponse response,UserAdmin user){ 
     	Result<Object> returnResult = ResultUtil.getRightObject();
